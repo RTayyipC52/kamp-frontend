@@ -3,7 +3,7 @@
 </div>
 <div class="mb-3">
     <label for="filterText" class="form-label">Ürün Ara</label>
-    <input type="text" [{ngModel}]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi giriniz">
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi giriniz">
 </div>
 <div *ngIf="filterText" class="alert alert-success">{{filterText}} aradınız.</div>
 <table *ngIf="dataLoaded==true" class="table">
