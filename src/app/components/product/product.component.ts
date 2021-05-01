@@ -10,6 +10,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductComponent implements OnInit {
   dataLoaded = false;
+  filterText="";
   products: Product[] = []
 
   constructor(private productService: ProductService, private activatedRoute: ActivatedRoute) { }
@@ -18,8 +19,7 @@ export class ProductComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       if (params["categoryId"]) {
         this.getProductsByCategory(params["categoryId"])
-      }
-      else {
+      } else {
         this.getProducts();
       }
     })

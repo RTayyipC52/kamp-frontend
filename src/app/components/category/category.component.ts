@@ -25,8 +25,9 @@ export class CategoryComponent implements OnInit {
   }
 
   SetCurrentCategory(category: Category) {
-    this.currentCategory = category;
+      this.currentCategory = category;
   }
+
 
   getCurrentCategoryClass(category: Category) {
     if (category == this.currentCategory) {
@@ -37,11 +38,11 @@ export class CategoryComponent implements OnInit {
     }
   }
 
-  getAllCategoryClass(){
-    if(!this.currentCategory){
+  getAllCategoryClass() {
+    if (!this.currentCategory) {
       return "list-group-item active"
     }
-    else{
+    else {
       return "list-group-item"
     }
   }
