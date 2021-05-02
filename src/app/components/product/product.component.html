@@ -3,7 +3,8 @@
 </div>
 <div class="mb-3">
     <label for="filterText" class="form-label">Ürün Ara</label>
-    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi giriniz">
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
+        placeholder="arama ifadesi giriniz">
 </div>
 <div *ngIf="filterText" class="alert alert-success">{{filterText}} aradınız.</div>
 <table *ngIf="dataLoaded==true" class="table">
@@ -15,14 +16,18 @@
             <th>Fiyat</th>
             <th>KDV'li Fiyat</th>
             <th>Stok Adedi</th>
+            <th></th>
         </tr>
     </thead>
-    <tr *ngFor="let product of products | filterPipe:filterText">
-        <td>{{product.productId}}</td>
-        <td>{{product.productName | uppercase }}</td>
-        <td>{{product.categoryId}}</td>
-        <td>{{product.unitPrice | currency }}</td>
-        <td>{{product.unitPrice | vatAdded:10 | currency }}</td>
-        <td>{{product.unitsInStock}}</td>
-    </tr>
+    <tbody>
+        <tr *ngFor="let product of products | filterPipe:filterText">
+            <td>{{product.productId}}</td>
+            <td>{{product.productName | uppercase }}</td>
+            <td>{{product.categoryId}}</td>
+            <td>{{product.unitPrice | currency }}</td>
+            <td>{{product.unitPrice | vatAdded:10 | currency }}</td>
+            <td>{{product.unitsInStock}}</td>
+            <td><button (click)="addToCart(product)" type="button" class="btn btn-success">Sepete Ekle</button></td>
+        </tr>
+    </tbody>
 </table>
